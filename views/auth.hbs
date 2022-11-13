@@ -1,0 +1,77 @@
+<div class="header ">
+    <div class="container ">
+       <div class="row">
+           <div class="col-lg-4 col-sm-12 main-header">
+               <h1 class="main-header__heading">Tallam</h1>
+               <div class="main-header__blue-line"></div>
+               <p class="main-header__info">информационно-аналитическая платформа</p>
+           </div>
+       </div>
+    </div>
+</div>
+
+<main class="main-auth">
+    <div class="container">
+    <div class="row">
+                    <div class ="col-12">
+                        <div style="color:tomato; font-weight:bold; text-align:center; padding:10px; text-transform:uppercase">
+                            Уважаемые пользователи, сообщаем Вам, что с 14 ноября по 19 ноября на портале будут вестись технические работы.
+                                           Возможны временные сбои в работе портала. Надеемся на Ваше понимание!
+                        </div>
+
+                    </div>
+                 </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-wrapper">
+                        <div class="white-container">
+                            {{#if error}}
+                                <p> {{ error}}</p>
+                            {{/if}}
+                            {{#if notice}}
+                                <p> {{ notice}}</p>
+                            {{/if}}
+
+                            <form action="/auth/login" method="POST">
+                                <div class="mb-3">
+                                    <input id="email" type="text" class="form-control form-control-lg" placeholder="ЛОГИН" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <input id="password" type="password" class="form-control form-control-lg" placeholder="ПАРОЛЬ" name="password">
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{@root.csrf}}" id="token">
+                                <div class="row gy-3">
+                                    <div class="col-md-6">
+                                        <div class="d-grid gap-2">
+                                            <input type="submit"  class="btn white-container__btn" value="Войти">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="#" class="btn forget-password__btn">Забыли пароль?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</main>
+
+<footer class="footer footer-auth">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="support">
+                    <div class="support__text">
+                        <p>Техническая поддержка: <br>webrush@mail.ru</p>
+                        <p>График работы: в будние дни <br>с 9:00 до 17:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
