@@ -16,6 +16,7 @@ const schoolCardRoutes = require('./routes/school_admin/school_card');
 const support = require('./routes/school_admin/support');
 
 
+
 const addRoutes = require('./routes/school_admin/add');
 const authRoutes = require('./routes/auth');
 const globalListRoutes = require('./routes/school_admin/global_list');
@@ -39,7 +40,9 @@ const isAuth = require('./middleware/auth')
 const isAdmin = require('./middleware/admin')
 
 
-dotenv.config() 
+dotenv.config()
+
+const dbhoptions = require('./helpers/dbh_options')
 
 const app = express()
 
@@ -148,14 +151,7 @@ app.use(jsonParser = bodyParser.json())
  */
 
 
-const dbh =  mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    database: process.env.DATABASE,
-    password: process.env.DATABASE_PASSWORD,
-    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-    port: process.env.DATABASE_PORT,
- })
+const dbh =  mysql.createConnection(dbhoptions)
 
  const options = {
     // checkExpirationInterval: 1000 * 60 * 15,

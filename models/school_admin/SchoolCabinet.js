@@ -1,6 +1,8 @@
+
 const mysql = require('mysql2/promise')
 const bcrypt = require('bcryptjs')
-const { v4: uuidv4 } = require('uuid'); 
+const { v4: uuidv4 } = require('uuid');
+
 
 /**
  * ######################  SELECT ROWS IN SQL #################################
@@ -18,7 +20,7 @@ exports.getSchoolData = async function (req, res) {
             password: process.env.DATABASE_PASSWORD,
             // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
             // port: process.env.DATABASE_PORT,
-           
+
         })
 
         const id_school = await req.school_id
