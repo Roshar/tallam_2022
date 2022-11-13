@@ -17,8 +17,8 @@ exports.getProfileByTeacherId = async (req, res) => {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
         
        })
  
@@ -55,8 +55,8 @@ exports.getAllKpkByIdTeacher = async(req, res) => {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
         
        })
  
@@ -83,8 +83,8 @@ exports.getInformationAboutIssetTeacherInProject = async (req, res) => {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
         
        })
  
@@ -140,8 +140,8 @@ exports.getAllTeachersNotMembersInCurrentProject = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -191,8 +191,8 @@ exports.getAllTeachersFromThisSchoolFromCurrentProject = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -240,8 +240,8 @@ exports.getGenders = async () => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -267,8 +267,8 @@ exports.getLevelEdu = async () => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -294,8 +294,8 @@ exports.getPositionList = async () => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -322,8 +322,8 @@ exports.getdisciplinesList = async () => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -350,8 +350,8 @@ exports.getCategories = async () => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -378,8 +378,8 @@ exports.getAllTeachersFromThisSchool = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -411,8 +411,8 @@ exports.getMoreInformationTeachers = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
       })
 
       const school_id = await req.school_id;
@@ -455,8 +455,8 @@ exports.disciplineListByTeacherId = async function (req, res) {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -485,8 +485,8 @@ exports.disciplineListByTeacherId2 = async function (req, res) {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
          
        
       })
@@ -523,8 +523,8 @@ exports.addNewTeacher = async (req, res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 
@@ -623,8 +623,8 @@ exports.updateTeacherMainInformationById  = async (req, res) =>{
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
       
@@ -725,8 +725,8 @@ exports.updateTeacherAvatar  = async (req, res) =>{
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
       })
       
       const id_teacher = await req.teacher_id;
@@ -765,8 +765,8 @@ exports.updateTeacherAvatar  = async (req, res) =>{
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
        
       })
 

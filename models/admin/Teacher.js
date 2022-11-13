@@ -173,8 +173,8 @@ exports.getAllTeachersFromCurrentProjectWithFilter = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
          
       })
 
@@ -223,8 +223,8 @@ exports.getTeachersByLastNameFilter = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
          
       })
 
@@ -277,8 +277,8 @@ exports.selectTeachersByProjectIdAndLatterFilter = async (req,res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
          
       })
 
@@ -332,8 +332,8 @@ exports.addCurrentProjectByChangeStatus = async (req, res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
          
       })
 
@@ -384,8 +384,8 @@ exports.deleteFromCurrentProjectByChangeStatus = async (req, res) => {
          user: process.env.DATABASE_USER,
          database: process.env.DATABASE,
          password: process.env.DATABASE_PASSWORD,
-         socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-         port: process.env.DATABASE_PORT,
+         // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+         // port: process.env.DATABASE_PORT,
          
       })
 

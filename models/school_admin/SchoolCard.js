@@ -18,8 +18,8 @@ exports.getCardByTeacherId = async function (req, res) {
            user: process.env.DATABASE_USER,
            database: process.env.DATABASE,
            password: process.env.DATABASE_PASSWORD,
-           socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-           port: process.env.DATABASE_PORT,
+           // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+           // port: process.env.DATABASE_PORT,
           
        })
  
@@ -70,8 +70,8 @@ exports.getCardByTeacherId = async function (req, res) {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
          
       })
 
@@ -123,8 +123,8 @@ exports.getAllMarksByTeacherId = async function (req, res) {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
       })
 
       const teacher_id = await req.teacher_id;
@@ -159,8 +159,8 @@ exports.getRecommendation = async function (req, res) {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
       })
 
       const v_param = await req.v_param;
@@ -195,8 +195,8 @@ exports.createNewMarkInCard = async (req, res) => {
           user: process.env.DATABASE_USER,
           database: process.env.DATABASE,
           password: process.env.DATABASE_PASSWORD,
-          socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-          port: process.env.DATABASE_PORT,
+          // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+          // port: process.env.DATABASE_PORT,
       })
 
       let {
@@ -386,8 +386,8 @@ exports.deleteMarkInCard = async(req , res) => {
             user: process.env.DATABASE_USER,
             database: process.env.DATABASE,
             password: process.env.DATABASE_PASSWORD,
-            socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-            port: process.env.DATABASE_PORT,
+            // socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
+            // port: process.env.DATABASE_PORT,
 
         })
 
