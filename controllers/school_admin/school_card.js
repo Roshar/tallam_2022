@@ -79,7 +79,7 @@ exports.getCardPageByTeacherId = async (req, res) => {
 
                         card[i].interest = Math.round((card[i].sum * 100) / 64);
 
-                        console.log(card)
+
 
                         if(card[i].interest > 75) {
                             card[i].level = "Выше базового уровня ";
@@ -118,6 +118,7 @@ exports.getCardPageByTeacherId = async (req, res) => {
                 }
              
                 let card = await SchoolCard.getCardByTeacherId(req.params);
+                console.log(card)
 
                 for(let i = 0; i < card.length; i++) {
                     card[i].sum = card[i].k_1_1_1 + card[i].k_1_1_2 + card[i].k_1_1_3 +card[i].k_1_2_1+card[i].k_2_1_1+card[i].k_2_1_2+card[i].k_2_1_3+card[i].k_2_1_4+card[i].k_2_2_1+card[i].k_2_2_2+card[i].k_2_2_3+card[i].k_2_2_4
