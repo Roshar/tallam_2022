@@ -48,15 +48,6 @@
 
 <main>
     <div class="container">
-    <div class="row">
-                    <div class ="col-12">
-                        <div style="color:tomato; font-weight:bold; text-align:center; padding:10px; text-transform:uppercase">
-                            Уважаемые пользователи, сообщаем Вам, что с 14 ноября по 19 ноября на портале будут вестись технические работы.
-                                           Возможны временные сбои в работе портала. Надеемся на Ваше понимание!
-                        </div>
-
-                    </div>
-                 </div>
         <div class="row indent-y-2-m">
             <div class="col-md-6">
                 <nav class="second_nav">
@@ -68,7 +59,8 @@
             <div class="col-md-6">
                 <nav class="second_nav">
                     <ul class="second_nav__items">
-                        <li class="second_nav__item"><a href="/school/card/add/project/{{project_id}}/teacher/{{teacher_id}}" class="second_nav__link">Оценить</a></li>
+{{!--                         <li class="second_nav__item"><a href="/school/card/add/project/{{project_id}}/teacher/{{teacher_id}}" class="second_nav__link">Оценить</a></li> --}}
+                        <li class="second_nav__item"><a href="/school/card/check/project/{{project_id}}/teacher/{{teacher_id}}" class="second_nav__link">Оценить</a></li>
                     </ul>
                 </nav>
             </div>
@@ -139,18 +131,20 @@
                                 <th>Предмет</th>
                                 <th>Класс</th>
                                 <th>Тип оценки</th>
+                                <th>Тип карты</th>
                             </tr>
                             </thead>
                             <tbody>
                             {{#if card}}
                                 {{#each card}}
-                                    <tr class="hov-link" data-href="/school/card/single/{{id_card}}/project/{{../project_id}}/{{../teacher_id}}">
+                                    <tr class="hov-link" data-href="/school/card/single/{{id_card}}/project/{{../project_id}}/{{../teacher_id}}/{{getCardLink card_type}}">
                                         <td class="tg-0pky"> {{increment @index}}</td>
                                         <td class="tg-0pky">{{day}} {{getMonthFromArray month}} {{year}}</td>
                                         <td class="tg-0pky">{{level}}</td>
                                         <td class="tg-0pky">{{title_discipline}}</td>
                                         <td class="tg-0pky">{{class_id}}</td>
                                         <td class="tg-0pky">{{getSource source_id}} </td>
+                                        <td class="tg-0pky">{{getCardName card_type}} </td>
                                     </tr>
                                 {{/each}}
                             {{else}}

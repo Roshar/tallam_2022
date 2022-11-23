@@ -42,34 +42,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <div class="content text-align-center ">
-                    <div class="main_page__heading indent-y-2">
-                        <h2 class="header_text_h2">Добро пожаловать на платформу Tallam!</h2>
-                        <h2 class="header_text_h2">Перед началом работы рекомендуем просмотреть видеоинструкцию</h2>
-                        {{#if error}}
-                            <h3>{{error}}</h3>
-                        {{/if}}
-                        {{#if notice}}
-                            <h3>{{notice}}</h3>
-                        {{/if}}
 
-                    </div>
-                    <section class="video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/TKpa1TanrDE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </section>
-                </div>
-            </div>
         </div>
         <div class="row indent-y-2">
             <div class="col-12">
                 <section class="main_page_buttons text-align-center">
                     <div class="row  own-reset">
                         <div class="col-md-6 left">
-                            <a href="/school/project" class="main_page_button_item">Проекты</a>
+                            <a href="/school/card/add/project/{{project_id}}/teacher/{{teacher_id}}/method" class="main_page_button_item">Карта оценки №1 (Методические компетенции)</a>
                         </div>
                         <div class="col-md-6 right">
-                            <a href="/school/list" class="main_page_button_item">База работников</a>
+                            <a href="/school/card/add/project/{{project_id}}/teacher/{{teacher_id}}/all" class="main_page_button_item">Карта оценки №2 (Комплексная)<br> <br>&nbsp;</a>
                         </div>
                     </div>
                 </section>
@@ -79,4 +62,3 @@
 </main>
 
 
-    

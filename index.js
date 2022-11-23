@@ -128,6 +128,20 @@ const hbs = exphbs.create({
             }else if(n == 2) {
                 return 'Внутришкольная'
             }
+        },
+        getCardName: (n) => {
+            if(n == 1) {
+                return 'Карта №1 (Полная)'
+            }else if(n == 2) {
+                return 'Карта №2 (Методические компетенции)'
+            }
+        },
+        getCardLink: (n) => {
+            if(n == 1) {
+                return 'full'
+            }else if(n == 2) {
+                return 'method'
+            }
         }
       
     }
