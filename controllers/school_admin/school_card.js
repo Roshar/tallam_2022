@@ -79,6 +79,8 @@ exports.getCardPageByTeacherId = async (req, res) => {
 
                         card[i].interest = Math.round((card[i].sum * 100) / 64);
 
+                        console.log(card)
+
                         if(card[i].interest > 75) {
                             card[i].level = "Выше базового уровня ";
                             card[i].levelStyle = 'success';
