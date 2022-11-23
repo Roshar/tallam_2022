@@ -137,10 +137,10 @@ const hbs = exphbs.create({
             }
         },
         getCardLink: (n) => {
-            if(n == 1) {
-                return 'full'
-            }else if(n == 2) {
+            if(n == 2) {
                 return 'method'
+            }else {
+                return 'full'
             }
         }
       
