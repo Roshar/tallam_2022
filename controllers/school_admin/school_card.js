@@ -25,11 +25,12 @@ const dateformat = require('../../utils/formatdate')
  *  GET CARD PAGE BY TEACHER ID
  *  school/card/project/2/teacher/id
  *  Раздел с оценками слушателя
+ *  -----------------------------------------------
  *  */
 
 exports.getCardPageByTeacherId = async (req, res) => {
     try{
-        
+
         if(req.session.user) {
 
             const school = await SchoolCabinet.getSchoolData(req.session.user)
@@ -43,7 +44,7 @@ exports.getCardPageByTeacherId = async (req, res) => {
             }
 
             const projectsIssetSchool = await SchoolProject.getAllProjectsWithThisSchool(req.session.user)
-            
+
             let resultA = []
 
             for(let i = 0; i < projectsIssetSchool.length; i++) {
@@ -54,9 +55,10 @@ exports.getCardPageByTeacherId = async (req, res) => {
 
             if(!resultA.length || resultA == 1) {
                 return res.status(422).redirect('/school/cabinet');
-            } 
+            }
 
             const teacher = await SchoolTeacher.getProfileByTeacherId(req.params)
+
             if(!teacher.length) {
                 return res.status(422).redirect('/school/cabinet');
             }
@@ -94,7 +96,9 @@ exports.getCardPageByTeacherId = async (req, res) => {
                             card[i].levelStyle = 'danger';
                         }
                      }
-                    console.log(card)
+                    // console.log('tuttttttttttt')
+                    // console.log(card)
+                    // console.log('tuttttttttttt')
 
                     const currentSourceId = await card.source;
                     const currentDisc = await card.disc;
@@ -116,9 +120,12 @@ exports.getCardPageByTeacherId = async (req, res) => {
                         notice: req.flash('notice')
                     })
                 }
-             
+
                 let card = await SchoolCard.getCardByTeacherId(req.params);
-                console.log(card)
+
+                console.log(card.length)
+                // console.log(card)
+                // console.log(card.length)
 
                 for(let i = 0; i < card.length; i++) {
                     card[i].sum = card[i].k_1_1_1 + card[i].k_1_1_2 + card[i].k_1_1_3 +card[i].k_1_2_1+card[i].k_2_1_1+card[i].k_2_1_2+card[i].k_2_1_3+card[i].k_2_1_4+card[i].k_2_2_1+card[i].k_2_2_2+card[i].k_2_2_3+card[i].k_2_2_4
@@ -158,7 +165,7 @@ exports.getCardPageByTeacherId = async (req, res) => {
                     error: req.flash('error'),
                     notice: req.flash('notice')
                 })
-            }else if(req.params.id_project == 3) { 
+            }else if(req.params.id_project == 3) {
                 console.log('Данный раздел находится в разработке')
                 return res.render('admin_page_not_ready', {
                     layout: 'main',
@@ -166,7 +173,7 @@ exports.getCardPageByTeacherId = async (req, res) => {
                     title: 'Предупрехждение',
                     error: req.flash('error'),
                     notice: req.flash('notice')
-                })   
+                })
             }else {
                 console.log('Ошибка в выборе проекта')
                 console.log(req.params)
@@ -181,10 +188,10 @@ exports.getCardPageByTeacherId = async (req, res) => {
                     throw err
                 }else {
                     res.redirect('/auth')
-                } 
+                }
             })
           }
-        
+
     }catch (e) {
         console.log(e)
     }
@@ -212,7 +219,7 @@ exports.getAllMarksByTeacherId = async (req, res) => {
             }
 
             const projectsIssetSchool = await SchoolProject.getAllProjectsWithThisSchool(req.session.user)
-            
+
             let resultA = []
 
             for(let i = 0; i < projectsIssetSchool.length; i++) {
@@ -223,7 +230,7 @@ exports.getAllMarksByTeacherId = async (req, res) => {
 
             if(!resultA.length || resultA == 1) {
                 return res.status(422).redirect('/school/cabinet');
-            } 
+            }
 
             if(req.params.project_id == 2) {
                 console.log(req.params)
@@ -232,7 +239,7 @@ exports.getAllMarksByTeacherId = async (req, res) => {
                 if(!allMarks.length) {
                     return res.status(422).redirect('/school/cabinet');
                 }
-             
+
                 const teacher_id = await allMarks[0].teacher_id;
 
                 const teacher = await SchoolTeacher.getProfileByTeacherId({
@@ -242,14 +249,14 @@ exports.getAllMarksByTeacherId = async (req, res) => {
                 const month = ['января', 'февраля','марта', 'апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 
                 for(let v = 0; v <allMarks.length; v++ ) {
-                    let commonValue = allMarks[v].k_1_1 + allMarks[v].k_1_2 + allMarks[v].k_1_3 + allMarks[v].k_2_1 
-                    + allMarks[v].k_2_2 + allMarks[v].k_3_1 + allMarks[v].k_4_1 + allMarks[v].k_5_1 + allMarks[v].k_5_2 
+                    let commonValue = allMarks[v].k_1_1 + allMarks[v].k_1_2 + allMarks[v].k_1_3 + allMarks[v].k_2_1
+                    + allMarks[v].k_2_2 + allMarks[v].k_3_1 + allMarks[v].k_4_1 + allMarks[v].k_5_1 + allMarks[v].k_5_2
                     + allMarks[v].k_6_1
 
                     let interest = (commonValue * 100) / 20;
 
                     allMarks[v].interest  = (commonValue * 100) / 20;
-                    
+
 
                     let d =  allMarks[v].create_mark_date.getDate();
                     let m =  allMarks[v].create_mark_date.getMonth();
@@ -288,7 +295,7 @@ exports.getAllMarksByTeacherId = async (req, res) => {
 
                 const jsonallMarks = JSON.parse(JSON.stringify(allMarks));
 
-                let workbook = new excel.Workbook(); 
+                let workbook = new excel.Workbook();
                 let worksheet = workbook.addWorksheet('allMarks');
 
                 worksheet.columns = [
@@ -331,7 +338,7 @@ exports.getAllMarksByTeacherId = async (req, res) => {
                     title: 'Предупрехждение',
                     error: req.flash('error'),
                     notice: req.flash('notice')
-                })   
+                })
             }else {
                 console.log('Ошибка в выборе проекта')
                 console.log(req.params)
@@ -346,10 +353,10 @@ exports.getAllMarksByTeacherId = async (req, res) => {
                     throw err
                 }else {
                     res.redirect('/auth')
-                } 
+                }
             })
           }
-        
+
     }catch (e) {
         console.log(e)
     }
@@ -424,9 +431,10 @@ exports.addMarkForTeacherAll = async (req, res) => {
 
                 }
 
-                let lastId = await SchoolCard.createNewMarkInCard(req.body);
+                let lastId = await SchoolCard.createNewMarkInCardAll(req.body);
+                console.log('Id полной карты' + lastId)
 
-                console.log('/school/card/project/' + project_id + '/teacher/' + teacher_id)
+
                     if(lastId) {
                         req.flash('notice', notice_base.success_insert_sql );
                         return res.status(200).redirect('/school/card/project/' + project_id + '/teacher/' + teacher_id);
@@ -513,7 +521,7 @@ exports.addMarkForTeacherMethod = async (req, res) => {
 
             if(req.body.id_teacher && req.body._csrf) {
                 const errors = validationResult(req);
-                 console.log(req.body)
+
 
                 if(!errors.isEmpty()) {
                     req.flash('error', error_base.empty_input)
@@ -522,7 +530,9 @@ exports.addMarkForTeacherMethod = async (req, res) => {
 
                 let lastId = await SchoolCard.createNewMarkInCardMethod(req.body);
 
-                console.log('/school/card/project/' + project_id + '/teacher/' + teacher_id)
+                console.log('Id методической  карты' + lastId)
+
+                // console.log('/school/card/project/' + project_id + '/teacher/' + teacher_id)
                 if(lastId) {
                     req.flash('notice', notice_base.success_insert_sql );
                     return res.status(200).redirect('/school/card/project/' + project_id + '/teacher/' + teacher_id);
@@ -585,7 +595,7 @@ exports.getSingleCardByIdFull = async (req, res) => {
             }
 
             const projectsIssetSchool = await SchoolProject.getAllProjectsWithThisSchool(req.session.user)
-            
+
             let resultA = []
 
             for(let i = 0; i < projectsIssetSchool.length; i++) {
@@ -596,8 +606,8 @@ exports.getSingleCardByIdFull = async (req, res) => {
 
             if(!resultA.length || resultA == 1) {
                 return res.status(422).redirect('/school/cabinet');
-            } 
-           
+            }
+
 
             if(req.params.project_id == 2) {
 
@@ -606,7 +616,7 @@ exports.getSingleCardByIdFull = async (req, res) => {
                 if(!singleCard.length) {
                     return res.status(422).redirect('/school/cabinet');
                 }
-             
+
                 const teacher_id = await singleCard[0].teacher_id;
 
 
@@ -673,11 +683,11 @@ exports.getSingleCardByIdFull = async (req, res) => {
 
 
                 if(req.body.excel_tbl) {
-                    
+
                     const jsonsingleCard = JSON.parse(JSON.stringify(singleCard));
-                    let workbook = new excel.Workbook(); 
+                    let workbook = new excel.Workbook();
                     let worksheet = workbook.addWorksheet('Singlecard');
-                    
+
 
                     worksheet.columns = [
                         { header: 'ФИО', key: 'fio', width: 10 },
@@ -759,7 +769,7 @@ exports.getSingleCardByIdFull = async (req, res) => {
                         k_param: 'k_1_1_2',
                         v_param: jsonsingleCard[0].k_1_1_2
                     });
-                    
+
                     const k_1_1_3_rec = await SchoolCard.getRecommendation({
                         k_param: 'k_1_1_3',
                         v_param: jsonsingleCard[0].k_1_1_3
@@ -1967,7 +1977,7 @@ exports.getSingleCardByIdFull = async (req, res) => {
                     title: 'Предупрехждение',
                     error: req.flash('error'),
                     notice: req.flash('notice')
-                })   
+                })
             }else {
                 console.log('Ошибка в выборе проекта')
                 console.log(req.params)
@@ -1982,10 +1992,10 @@ exports.getSingleCardByIdFull = async (req, res) => {
                     throw err
                 }else {
                     res.redirect('/auth')
-                } 
+                }
             })
           }
-        
+
     }catch (e) {
         console.log(e)
     }

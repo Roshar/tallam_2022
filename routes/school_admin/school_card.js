@@ -10,7 +10,6 @@ const router = Router()
 
 router.post('/single/:id_card/project/:project_id/:teacher_id/full', school_cardCtrl.getSingleCardByIdFull)
 router.get('/single/:id_card/project/:project_id/:teacher_id/full', school_cardCtrl.getSingleCardByIdFull)
-
 router.post('/single/:id_card/project/:project_id/:teacher_id/method', school_cardCtrl.getSingleCardByIdMethod)
 router.get('/single/:id_card/project/:project_id/:teacher_id/method', school_cardCtrl.getSingleCardByIdMethod)
 router.post('/project/:project_id/teacher/:teacher_id', school_cardCtrl.getCardPageByTeacherId)
