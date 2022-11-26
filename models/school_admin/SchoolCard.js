@@ -39,16 +39,6 @@ exports.getCardByTeacherId = async function (req, res) {
        ' INNER JOIN  source_tbl as stbl ON cftm.source_id = stbl.id_source '+
        ' WHERE cftm.teacher_id = ?',[teacher_id])
 
-        // const [res, fields] = await dbh.execute('SELECT cftm.id_card, cftm.teacher_id, cftm.discipline_id, cftm.school_id, cftm.thema, '+
-        //     ' cftm.source_id, cftm.class_id, cftm.k_1_1, cftm.k_1_2, cftm.k_1_3, cftm.k_2_1, cftm.k_2_2, cftm.k_3_1, cftm.k_4_1,'+
-        //     ' cftm.k_5_1, cftm.k_5_2, cftm.k_6_1,  EXTRACT(DAY FROM cftm.create_mark_date) as day, '+
-        //     ' EXTRACT(MONTH FROM cftm.create_mark_date) as month, EXTRACT(YEAR FROM cftm.create_mark_date) as year,dt.title_discipline,'+
-        //     ' outside.source_fio, outside.position_name, outside.source_workplace, stbl.name_source  '+
-        //     ' FROM card_from_project_teacher_mark as cftm'+
-        //     ' INNER JOIN  discipline_title as dt ON cftm.discipline_id = dt.id_discipline '+
-        //     ' INNER JOIN  outside_card as outside ON cftm.id_card = outside.card_id '+
-        //     ' INNER JOIN  source_tbl as stbl ON cftm.source_id = stbl.id_source '+
-        //     ' WHERE cftm.teacher_id = ?',[teacher_id])
  
        dbh.end()
        return res;
@@ -91,16 +81,7 @@ exports.getCardByTeacherId = async function (req, res) {
       ' INNER JOIN  source_tbl as stbl ON cftm.source_id = stbl.id_source '+
       ' WHERE cftm.id_card = ?',[id_card])
 
-       // const [res, fields] = await dbh.execute('SELECT cftm.id_card, cftm.teacher_id, cftm.discipline_id, cftm.school_id, cftm.thema, '+
-       //     ' cftm.source_id, cftm.class_id,cftm.liter_class, cftm.k_1_1, cftm.k_1_2, cftm.k_1_3, cftm.k_2_1, cftm.k_2_2, cftm.k_3_1, cftm.k_4_1,'+
-       //     ' cftm.k_5_1, cftm.k_5_2, cftm.k_6_1,  EXTRACT(DAY FROM cftm.create_mark_date) as day, '+
-       //     ' EXTRACT(MONTH FROM cftm.create_mark_date) as month, EXTRACT(YEAR FROM cftm.create_mark_date) as year, cftm.create_mark_date, dt.title_discipline,'+
-       //     ' outside.source_fio, outside.position_name, outside.source_workplace, stbl.name_source  '+
-       //     ' FROM card_from_project_teacher_mark as cftm'+
-       //     ' INNER JOIN  discipline_title as dt ON cftm.discipline_id = dt.id_discipline '+
-       //     ' INNER JOIN  outside_card as outside ON cftm.id_card = outside.card_id '+
-       //     ' INNER JOIN  source_tbl as stbl ON cftm.source_id = stbl.id_source '+
-       //     ' WHERE cftm.id_card = ?',[id_card])
+
 
       dbh.end()
       return res;
@@ -188,7 +169,7 @@ exports.getRecommendation = async function (req, res) {
 
 /** CREATE NEW MARK IN TEACHERS'S CARD BY TEACHER ID  */
 
-exports.createNewMarkInCard = async (req, res) => {
+exports.createNewMarkInCardAll = async (req, res) => {
    try {
       const dbh = await mysql.createConnection({
           host: process.env.DATABASE_HOST,
@@ -252,6 +233,8 @@ exports.createNewMarkInCard = async (req, res) => {
        date_create,
        } = await req;
 
+       console.log('Карта полная - модель')
+       console.log(req.body)
 
        //card_type - это тип карты оценки  | полная или только методические
 
@@ -343,6 +326,7 @@ exports.createNewMarkInCardMethod = async (req, res) => {
             date_create,
         } = await req;
 
+        console.log('Карта методическая - модель')
         console.log(req.body)
         //card_type - тип карты оценки - 2 - методические компетенции
 
@@ -359,9 +343,11 @@ exports.createNewMarkInCardMethod = async (req, res) => {
             throw new Error('не удалось добавить оценку, обратитесь к технической службе')
         } else {
             if (source_id == 1) {
+                console.log('модель вставка №1')
                 const [result2, fields2] = await dbh.execute('INSERT INTO outside_card (card_id, source_fio, position_name, source_workplace, source_id)' +
                     ' VALUES (?,?,?,?,?)', [result.insertId, source_fio, position_name, source_workplace, source_id])
             } else {
+                console.log('модель вставка №2')
                 const [result3, fields3] = await dbh.execute('INSERT INTO outside_card (card_id, source_fio, position_name, source_workplace, source_id)' +
                     ' VALUES (?,?,?,?,?)', [result.insertId, 'Школа', 'Школа', 'Школа', source_id])
             }
@@ -392,9 +378,7 @@ exports.getCardByTeacherIdWhithFilter = async function (req, res) {
       let teacher_id = await req.id_teacher;
       let source = await req['card-results-sourse'];
       let disc = await req['card-results-discipline'];
-      //console.log(source)
-   //    console.log('////////')
-   //    console.log(disc)
+
 
       if(source == 'all' && disc == 'all') {
 

@@ -131,7 +131,7 @@ const hbs = exphbs.create({
         },
         getCardName: (n) => {
             if(n == 1) {
-                return 'Карта №1 (Полная)'
+                return 'Карта №1 (Комплексная)'
             }else if(n == 2) {
                 return 'Карта №2 (Методические компетенции)'
             }
