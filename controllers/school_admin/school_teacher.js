@@ -116,7 +116,7 @@ exports.getSchoolTeachers = async (req, res) => {
                 const firstname = await req.body.firstname.trim();
                 const patronymic = await req.body.patronymic.trim();
                 const birthday = await req.body.birthday;
-                const snils = await req.body.snils || '';
+                const snils = await req.body.snils || '00000000000';
                 const gender_id = await parseInt(req.body.gender);
                 const specialty = await req.body.specialty.trim();
                 const level_of_education_id = await parseInt(req.body.level_of_education) || 1;
