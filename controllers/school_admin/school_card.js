@@ -123,7 +123,7 @@ exports.getCardPageByTeacherId = async (req, res) => {
 
                 let card = await SchoolCard.getCardByTeacherId(req.params);
 
-                console.log(card.length)
+                // console.log(card.length)
                 // console.log(card)
                 // console.log(card.length)
 
@@ -1166,7 +1166,7 @@ exports.getSingleCardByIdFull = async (req, res) => {
                             new Paragraph({
                                 children: [
                                     new TextRun({
-                                        text: '2.1.1. указывает на ошибки обучающихся, связанные с предметными знаниями и умениями, оперативно объясняет и исправляет их',
+                                        text: '2.1.1. учитель формулирует цель урока (занятия)  вместе с обучающимися, используя проблемную ситуацию (задачу), смысловые догадки, метод ассоциаций и иное',
                                         bold:true
                                     })]
                             }),
@@ -3049,7 +3049,7 @@ exports.getSingleCardByIdMethod = async (req, res) => {
         console.log(e)
     }
 }
-
+ 
 /** END BLOCK */
 
 
