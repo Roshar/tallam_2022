@@ -257,6 +257,12 @@
                            <td class="tg-c3ow">{{k_2_5_2}}</td>
                          </tr>
 
+{{!-- заключение --}}
+                         <tr class=" final-tr {{../levelStyle}}">
+                              <td class="tg-c3ow own-table-align-center" colspan="2">КАЧЕСТВО УРОКА<br><span style="font-weight:bold;font-style:italic">100-76% - выше базового,  75-51% - базовый уровень,</span><br><span style="font-weight:bold;font-style:italic">50-0% - ниже базового </span><span style="font-weight:bold"> </span></td>
+                              <td class="tg-0pky own-table-align-center align-middle">{{../interest}} <br> {{../level}} </td>
+                          </tr>
+
                        </tbody>
                        </table>
 
@@ -346,6 +352,7 @@
 <div class="black"></div>
 
 <script>
+
     $('tr[data-href]').on("click", function() {
          document.location = $(this).data('href');
     });
